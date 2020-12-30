@@ -1,21 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+import AccountScreen from './src/screens/AccountScreen'
+import CourseCreateScreen from './src/screens/CourseCreateScreen'
+import CourseDetailScreen from './src/screens/CourseDetailScreen'
+import CourseListScreen from './src/screens/CourseListScreen'
+import SigninScreen from './src/screens/SigninScreen'
+import SignupScreen from './src/screens/SignupScreen'
+
+const switchNavigator = createSwitchNavigator({
+  loginFlow: createStackNavigator({
+    Signup: SignupScreen,
+    Signin: SigninScreen
+  }),
+  mainFlow: createBottomTabNavigator({
+    courseListFlow: createStackNavigator({
+      CourseList: CourseListScreen,
+      CourseDetail: CourseDetailScreen
+    }),
+    CourseCreate: CourseCreateScreen,
+    Account: AccountScreen
+  })
+})
+
+export default createAppContainer(switchNavigator)

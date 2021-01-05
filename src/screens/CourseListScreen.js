@@ -1,18 +1,20 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet,ScrollView } from 'react-native'
 import { Text, Button } from 'react-native-elements'
+
 import Spacer from '../components/Spacer'
+import CarouselCards from '../components/CarouselCards'
+
 
 const CourseListScreen = ({ navigation }) => {
     return (
+        <ScrollView>
         <View style={styles.container}>
             <Spacer>
                 <Text h3>
                     CourseListScreen
                 </Text>
-                <Text style={styles.innertext}>
-                    Scrollable List of courses
-                </Text>
+                <CarouselCards />
             </Spacer>
             <Spacer>
                 <Button title="Go to Course Detail" onPress={() => navigation.navigate('CourseDetail')} />
@@ -24,6 +26,7 @@ const CourseListScreen = ({ navigation }) => {
                 <Button title="Toggle to Login Flow" onPress={() => navigation.navigate('loginFlow')} />
             </Spacer>
         </View>
+        </ScrollView>
     )
 }
 

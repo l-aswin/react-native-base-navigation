@@ -13,11 +13,15 @@ const SignupScreen = ({ navigation }) => {
             <Spacer />
             <Input label="Password" />
             <Spacer>
-                <Button title="Sign Up" onPress={() => navigation.navigate('Signin')}/>
+                <Button title="Sign Up" />
             </Spacer>
 
             <Spacer>
-                <Button title="Toggle to Main Flow" onPress={() => navigation.navigate('mainFlow')}/>
+                <Button title="Toggle to Learner Flow" onPress={() => navigation.navigate('learnerMainFlow')}/>
+            </Spacer>
+
+            <Spacer>
+                <Button  title="Toggle to Trainer Flow" onPress={() => navigation.navigate('trainerMainFlow')}/>
             </Spacer>
             
         </View>

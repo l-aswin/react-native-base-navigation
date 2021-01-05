@@ -10,9 +10,15 @@ const CourseListScreen = ({ navigation }) => {
                 <Text h3>
                     CourseListScreen
                 </Text>
+                <Text style={styles.innertext}>
+                    Scrollable List of courses
+                </Text>
             </Spacer>
             <Spacer>
                 <Button title="Go to Course Detail" onPress={() => navigation.navigate('CourseDetail')} />
+            </Spacer>
+            <Spacer>
+                <Button title="Take Quiz completed Course" onPress={() => navigation.navigate('Quiz')} />
             </Spacer>
             <Spacer>
                 <Button title="Toggle to Login Flow" onPress={() => navigation.navigate('loginFlow')} />
@@ -32,7 +38,11 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         marginBottom: 200
-    }
+    },
+    innertext:{
+        marginTop: 5,
+        fontSize: 23
+    },
 })
 
 export default CourseListScreen
